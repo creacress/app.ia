@@ -27,6 +27,7 @@ const Header = () => (
     </Link>
     <nav className="hidden sm:flex gap-4 text-sm text-gray-400">
       <Link href="/pdf-summary">Résumé PDF</Link>
+      <Link href="/pdf-compressor">Compressor PDF</Link>
       <Link href="/linkedin-post">Post LinkedIn</Link>
       <Link href="/excel-cleaner">Excel</Link>
       <Link href="/revision-cards">Fiches</Link>
@@ -44,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
         <Header />
         {children}

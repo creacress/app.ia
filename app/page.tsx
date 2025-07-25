@@ -9,7 +9,8 @@ import ServiceCard from "@/components/ServiceCard";
 
 export default function Home() {
   const services = [
-    { name: "Résumé PDF/PPT", path: "/pdf-summary" },
+    { name: "Résumé PDF", path: "/pdf-summary" },
+    { name: "Compressor PDF", path: "/pdf-compressor" },
     { name: "Post LinkedIn", path: "/linkedin-post" },
     { name: "Nettoyage Excel", path: "/excel-cleaner" },
     { name: "Fiches Révision", path: "/revision-cards" },
