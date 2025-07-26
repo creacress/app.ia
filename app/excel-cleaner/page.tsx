@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import SuiviPage from '@/components/SuiviPage';
 
 export default function ExcelCleanerPage() {
   const [input, setInput] = useState('');
@@ -65,6 +66,8 @@ export default function ExcelCleanerPage() {
   return (
     <>
       <div className="flex justify-center mb-6 animate-fade-in">
+        <SuiviPage />
+        
         <svg className="w-16 h-16 text-green-400" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3 4.5h18M3 9h18M3 13.5h18M3 18h18" />
         </svg>

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://www.microgenie.app/convertisseur-images</loc><lastmod>2025-07-26T20:17:59.455Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.microgenie.app/linkedin-post</loc><lastmod>2025-07-26T20:17:59.455Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.microgenie.app/pdf-summary</loc><lastmod>2025-07-26T20:17:59.455Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.microgenie.app</loc><lastmod>2025-07-26T20:17:59.455Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.microgenie.app/revision-cards</loc><lastmod>2025-07-26T20:17:59.455Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.microgenie.app/cv-generator</loc><lastmod>2025-07-26T20:17:59.455Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.microgenie.app/excel-cleaner</loc><lastmod>2025-07-26T20:17:59.455Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.microgenie.app/pdf-compressor</loc><lastmod>2025-07-26T20:17:59.455Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.microgenie.app/cv-generator</loc><lastmod>2025-07-26T21:39:29.846Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.microgenie.app/pdf-summary</loc><lastmod>2025-07-26T21:39:29.847Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.microgenie.app/linkedin-post</loc><lastmod>2025-07-26T21:39:29.847Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.microgenie.app/contact</loc><lastmod>2025-07-26T21:39:29.847Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.microgenie.app/pdf-compressor</loc><lastmod>2025-07-26T21:39:29.847Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.microgenie.app/excel-cleaner</loc><lastmod>2025-07-26T21:39:29.847Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.microgenie.app</loc><lastmod>2025-07-26T21:39:29.847Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.microgenie.app/convertisseur-images</loc><lastmod>2025-07-26T21:39:29.847Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.microgenie.app/revision-cards</loc><lastmod>2025-07-26T21:39:29.847Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.microgenie.app/image-compressor</loc><lastmod>2025-07-26T21:39:29.847Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
