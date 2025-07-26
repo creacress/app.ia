@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
 
     form.append('mode', mode.toString());
 
-    const res = await fetch('http://31.97.178.252:8000/pdf-compress', {
+    const res = await fetch('https://support.microgenie.app//pdf-compress', {
       method: 'POST',
       body: form,
     });

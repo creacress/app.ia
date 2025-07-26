@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
   try {
     const formDataToSend = new FormData();
     formDataToSend.append("file", new Blob([buffer]), file.name);
-    const extractRes = await fetch("http://31.97.178.252:8000/extract", {
+    const extractRes = await fetch("https://support.microgenie.app//extract", {
       method: "POST",
       body: formDataToSend,
     });
