@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     if (extractRes.status === 413) {
       return new Response(
         JSON.stringify({
-          summary: "Le document est trop volumineux. Seuls les 10 000 premiers caractères ont été analysés.",
+          summary: "Le document est trop volumineux. Seuls les 10 000 premiers caractères ont été analysés (limite Mistral).",
           partial: true,
           truncated: true,
         }),
@@ -40,8 +40,8 @@ export async function POST(req: NextRequest) {
     }
     const extractData = await extractRes.json();
     const FULL_TEXT = extractData.text || "Document vide.";
-    isPartial = FULL_TEXT.length > 3000;
-    text = FULL_TEXT.slice(0, 3000);
+    isPartial = FULL_TEXT.length > 10000;
+    text = FULL_TEXT.slice(0, 10000);
   } catch (error) {
     return new Response(JSON.stringify({ error: "Erreur lors de l’analyse PDF (Flask API)." }), {
       status: 502,
