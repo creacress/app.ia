@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const res = await fetch('https://support.microgenie.app//excel-cleaner', {
+    const res = await fetch('https://support.microgenie.app/excel-cleaner', {
       method: 'POST',
       body: form,
     });
