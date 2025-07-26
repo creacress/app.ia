@@ -214,15 +214,15 @@ export default function PDFSummaryPage() {
           <label className="block text-sm font-medium text-gray-300 mb-1">
             Sélectionne ton fichier :
           </label>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 w-full">
             <input
               type="file"
               accept=".pdf,.ppt,.pptx"
               onChange={(e) => setFile(e.target.files?.[0] || null)}
-              className="flex-1 bg-zinc-900 border border-zinc-700 rounded px-4 py-2 text-white"
+              className="w-full bg-zinc-900 border border-zinc-700 rounded px-4 py-2 text-white"
             />
             {file && (
-              <span className="inline-flex items-center space-x-2 bg-indigo-700 text-indigo-100 px-3 py-1 rounded text-xs font-semibold select-none">
+              <span className="sm:inline-flex flex items-center space-x-2 bg-indigo-700 text-indigo-100 px-3 py-1 rounded text-xs font-semibold select-none break-words max-w-full">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
