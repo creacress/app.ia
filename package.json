@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "postbuild": "next-sitemap",
     "lint": "next lint"
   },
   "dependencies": {
@@ -34,6 +35,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/uuid": "^10.0.0",
+    "next-sitemap": "^4.2.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
