@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 };
 
 import Link from "next/link";
-import Head from "next/head";
 import CookieConsent from "../components/CookieConsent";
 
 const Header = () => (
