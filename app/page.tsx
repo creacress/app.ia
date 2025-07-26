@@ -12,6 +12,7 @@ export default function Home() {
     { name: "Résumé PDF", path: "/pdf-summary" },
     { name: "Compressor PDF", path: "/pdf-compressor" },
     { name: "Post LinkedIn", path: "/linkedin-post" },
+    { name: "Convertisseur Image", path: "/convertisseur-images" },
     { name: "Nettoyage Excel", path: "/excel-cleaner" },
     { name: "Fiches Révision", path: "/revision-cards" },
     { name: "Compression Image", path: "/image-compressor" },
@@ -24,7 +25,7 @@ export default function Home() {
         Bienvenue sur <span className="text-indigo-400">app.ia</span>
       </h1>
       <p className="text-center text-gray-300 max-w-xl mx-auto mb-12">
-        6 microservices IA utiles au quotidien. Gratuits, instantanés, simples.
+        7 microservices IA utiles au quotidien. Gratuits, instantanés, simples.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {services.map((s) => (
