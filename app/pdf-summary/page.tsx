@@ -184,7 +184,7 @@ export default function PDFSummaryPage() {
       className={`min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-black to-black text-white px-6 py-16 ${readingMode ? "reading-mode" : ""
         } ${showQuotaPopup ? "blurred" : ""}`}
     >
-      <div className="max-w-2xl mx-auto">
+      <div className="w-full max-w-2xl px-4 sm:px-6 lg:px-8 mx-auto">
         <h1 className="text-4xl font-bold mb-4 text-center animate-fade-in flex items-center justify-center gap-3">
           <svg
             className={`w-10 h-10 text-indigo-400 animate-pulse-slow`}
