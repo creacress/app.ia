@@ -1,24 +1,27 @@
-import { useEffect, useState } from "react";
+import { create } from "zustand";
 
-type SummaryItem = {
+type HistoryEntry = {
   fileName: string;
   summary: string;
   date: string;
 };
 
-export function useHistoryStore() {
-  const [history, setHistory] = useState<SummaryItem[]>([]);
+type HistoryStore = {
+  history: HistoryEntry[];
+  usageCount: number;
+  addToHistory: (entry: HistoryEntry) => void;
+  resetHistory: () => void;
+  incrementCount: () => void;
+};
 
-  useEffect(() => {
-    const stored = localStorage.getItem("pdfSummaryHistory");
-    if (stored) setHistory(JSON.parse(stored));
-  }, []);
-
-  const addToHistory = (item: SummaryItem) => {
-    const updated = [item, ...history].slice(0, 10);
-    setHistory(updated);
-    localStorage.setItem("pdfSummaryHistory", JSON.stringify(updated));
-  };
-
-  return { history, addToHistory };
-}
+export const useHistoryStore = create<HistoryStore>((set: (fn: (state: HistoryStore) => HistoryStore | Partial<HistoryStore>) => void) => ({
+  history: [],
+  usageCount: 0,
+  addToHistory: (entry: HistoryEntry) =>
+    set((state) => ({
+      history: [...state.history, entry],
+      usageCount: state.usageCount + 1,
+    })),
+  resetHistory: () => set(() => ({ history: [], usageCount: 0 })),
+  incrementCount: () => set((state) => ({ usageCount: state.usageCount + 1 })),
+}));

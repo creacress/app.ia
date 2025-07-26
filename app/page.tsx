@@ -25,7 +25,7 @@ export default function Home() {
         Bienvenue sur <span className="text-indigo-400">microgenie.app</span>
       </h1>
       <p className="text-center text-gray-300 max-w-xl mx-auto mb-12">
-        7 microservices IA utiles au quotidien. Gratuits, instantanés, simples.
+        Des microservices IA utiles au quotidien. Gratuits, instantanés, simples.
       </p>
       <p className="text-center text-gray-400 max-w-2xl mx-auto mb-8">
         Enfin une application qui propose des outils PDF, de conversion d’images et d’optimisation sans publicité, sans redirection trompeuse, et surtout sans tracking. Chez <span className="text-indigo-400 font-semibold">microgenie.app</span>, vos données ne sont ni collectées ni revendues. Profitez d’une technologie IA performante et instantanée, dans un environnement simple, sécurisé et respectueux de votre vie privée.

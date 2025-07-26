@@ -13,6 +13,7 @@ export default function PDFSummaryPage() {
   const [summary, setSummary] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [showLimitPopup, setShowLimitPopup] = useState(false);
+  const [showQuotaPopup, setShowQuotaPopup] = useState(false);
   const [langTone, setLangTone] = useState<{ lang: string; type: string } | null>(null);
   const [charCount, setCharCount] = useState(0);
   const { history, addToHistory } = useHistoryStore();
@@ -39,15 +40,20 @@ export default function PDFSummaryPage() {
     setCharCount(summary?.length || 0);
   }, [summary]);
 
-  // Typewriter effect for summary display
+  // Typewriter effect for summary display (affiche tout le texte, y compris la première lettre, dès le début)
   useEffect(() => {
     if (!summary) {
       setDisplayedSummary("");
       return;
     }
-    let index = 0;
-    setDisplayedSummary("");
+
     if (typewriterInterval.current) clearInterval(typewriterInterval.current);
+
+    let index = 0;
+    const initialDelay = 5;
+    setDisplayedSummary(summary.charAt(0));
+    index = 1;
+
     typewriterInterval.current = setInterval(() => {
       setDisplayedSummary((prev) => prev + summary.charAt(index));
       index++;
@@ -55,6 +61,7 @@ export default function PDFSummaryPage() {
         clearInterval(typewriterInterval.current);
       }
     }, 15);
+
     return () => {
       if (typewriterInterval.current) clearInterval(typewriterInterval.current);
     };
@@ -66,6 +73,11 @@ export default function PDFSummaryPage() {
     setSummary("");
     setLangTone(null);
     setShowLimitPopup(false);
+    if (history.length >= 10) {
+      setShowQuotaPopup(true);
+      setLoading(false);
+      return;
+    }
     setProgress(0);
 
     // Simulate progress bar
@@ -169,9 +181,8 @@ export default function PDFSummaryPage() {
 
   return (
     <main
-      className={`min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-black to-black text-white px-6 py-16 ${
-        readingMode ? "reading-mode" : ""
-      }`}
+      className={`min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-black to-black text-white px-6 py-16 ${readingMode ? "reading-mode" : ""
+        } ${showQuotaPopup ? "blurred" : ""}`}
     >
       <div className="max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold mb-4 text-center animate-fade-in flex items-center justify-center gap-3">
@@ -192,15 +203,13 @@ export default function PDFSummaryPage() {
           </svg>
           Résumé de PDF
         </h1>
-
         <div
           onDragEnter={handleDrag}
           onDragOver={handleDrag}
           onDragLeave={handleDrag}
           onDrop={handleDrop}
-          className={`bg-zinc-800/80 backdrop-blur-md rounded-xl p-6 shadow-2xl border border-zinc-700 space-y-4 animate-fade-in ${
-            dragActive ? "drag-active" : ""
-          }`}
+          className={`bg-zinc-800/80 backdrop-blur-md rounded-xl p-6 shadow-2xl border border-zinc-700 space-y-4 animate-fade-in ${dragActive ? "drag-active" : ""
+            }`}
         >
           <label className="block text-sm font-medium text-gray-300 mb-1">
             Sélectionne ton fichier :
@@ -306,9 +315,8 @@ export default function PDFSummaryPage() {
                 Résumé :
                 <svg
                   onClick={handleCopy}
-                  className={`w-5 h-5 cursor-pointer text-indigo-300 hover:text-indigo-100 transition-colors ${
-                    copied ? "animate-copy" : ""
-                  }`}
+                  className={`w-5 h-5 cursor-pointer text-indigo-300 hover:text-indigo-100 transition-colors ${copied ? "animate-copy" : ""
+                    }`}
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -406,6 +414,33 @@ export default function PDFSummaryPage() {
         📌 Résumé partiel : seuls les 10 000 premiers caractères ont été traités.
       </div>
 
+      {showQuotaPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm z-50 flex items-center justify-center">
+          <div className="bg-zinc-900 border border-indigo-700 rounded-xl p-6 w-full max-w-md shadow-xl text-white animate-fade-in">
+            <h2 className="text-xl font-semibold mb-4 text-indigo-400">Limite atteinte</h2>
+            <p className="text-sm mb-4">
+              Vous avez atteint la limite de <strong>10 résumés PDF gratuits</strong>. Chaque traitement a un coût serveur, même en version gratuite.
+              <br />
+              Pour continuer, vous pouvez :
+            </p>
+            <ul className="text-sm list-disc list-inside mb-4 space-y-1">
+              <li>Payer à l'usage pour chaque nouveau résumé</li>
+              <li>Passer à l'offre <strong>Premium</strong> : documents plus longs, illimités, traitement prioritaire</li>
+            </ul>
+            <div className="flex justify-end gap-3">
+              <button
+                className="px-4 py-2 bg-zinc-700 hover:bg-zinc-600 text-sm rounded"
+                onClick={() => setShowQuotaPopup(false)}
+              >
+                Fermer
+              </button>
+              <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-sm rounded font-semibold">
+                Voir les options
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <style jsx>{`
         @keyframes fade-in {
           from {
@@ -484,3 +519,9 @@ export default function PDFSummaryPage() {
     </main>
   );
 }
+<style jsx>{`
+  .blurred {
+    filter: blur(2px);
+    pointer-events: none;
+  }
+`}</style>

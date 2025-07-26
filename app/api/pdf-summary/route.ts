@@ -3,6 +3,12 @@ import { NextRequest } from "next/server";
 import { Buffer } from "buffer";
 
 export async function POST(req: NextRequest) {
+  if (!process.env.MISTRAL_API_KEY) {
+    return new Response(JSON.stringify({ error: "Clé API Mistral manquante." }), {
+      status: 500,
+    });
+  }
+
   const formData = await req.formData();
   const file = formData.get("file") as File;
 
@@ -48,10 +54,12 @@ export async function POST(req: NextRequest) {
     });
   }
 
+  console.log("Texte envoyé à Mistral (début):", text.slice(0, 100));
+
   const mistralRes = await fetch("https://api.mistral.ai/v1/chat/completions", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.MISTRAL_API_KEY}`,
+      Authorization: `Bearer ${process.env.MISTRAL_API_KEY ?? ""}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
@@ -77,6 +85,8 @@ export async function POST(req: NextRequest) {
   const raw = await mistralRes.text();
   const json = JSON.parse(raw);
   const summary = json.choices?.[0]?.message?.content || "Aucun résumé généré.";
+
+  console.log("Résumé reçu de Mistral (début):", summary?.slice(0, 100));
 
   return new Response(JSON.stringify({ summary, partial: isPartial, truncated: isPartial }), {
     headers: { "Content-Type": "application/json" },
