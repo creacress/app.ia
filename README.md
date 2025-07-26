@@ -1,6 +1,6 @@
 
 
-# 📚 app.ia – Plateforme IA multifonction
+# 📚 microgenie.app – Plateforme IA multifonction
 
 ## ✅ Fonctionnalités déjà en place
 
@@ -61,7 +61,7 @@
 ## 📂 Structure du projet
 
 ```
-app.ia/
+microgenie.app/
 ├── app/
 │   ├── pdf-summary/
 │   ├── linkedin-post/

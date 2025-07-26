@@ -107,7 +107,7 @@ export default function PDFSummaryPage() {
   };
 
   const downloadMarkdown = () => {
-    const watermark = "\n\n---\nRésumé généré par IA - app.ia";
+    const watermark = "\n\n---\nRésumé généré par IA - microgenie.app";
     const blob = new Blob([`# Résumé\n\n${summary}${watermark}`], { type: "text/markdown" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
@@ -130,7 +130,7 @@ export default function PDFSummaryPage() {
   };
 
   const downloadText = () => {
-    const watermark = "\n\n---\nRésumé généré par IA - app.ia";
+    const watermark = "\n\n---\nRésumé généré par IA - microgenie.app";
     const blob = new Blob([summary + watermark], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -368,7 +368,7 @@ export default function PDFSummaryPage() {
             </div>
 
             <div className="watermark-text select-none pointer-events-none">
-              Résumé généré par IA - app.ia
+              Résumé généré par IA - microgenie.app
             </div>
           </div>
         )}
