@@ -55,6 +55,36 @@ export default function PDFCompressorPage() {
     }
   };
 
+  // Extraction de texte du PDF
+  const handleExtractText = async () => {
+    if (!file) return;
+    setLoading(true);
+    setOutput(null);
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const res = await fetch('https://support.microgenie.app/extract', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!res.ok) {
+        throw new Error(`Échec de l'extraction : ${res.status}`);
+      }
+
+      const data = await res.json();
+      console.log("Texte extrait :", data);
+      setOutput(data.text);
+    } catch (err: any) {
+      console.error("Erreur d'extraction :", err);
+      alert("Impossible d'extraire le texte du PDF.\n" + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       {console.log("STATE output:", output)}
@@ -151,6 +181,14 @@ export default function PDFCompressorPage() {
                   🗜️ Compresser le PDF
                 </button>
 
+                <button
+                  onClick={handleExtractText}
+                  disabled={loading}
+                  className="w-full bg-blue-600 hover:bg-blue-500 transition-all duration-200 px-4 py-2 rounded text-white font-semibold transform hover:scale-[1.02]"
+                >
+                  🧠 Extraire le résumé PDF
+                </button>
+
                 {loading && (
                   <div className="flex justify-center py-4">
                     <DotLottieReact
@@ -165,42 +203,10 @@ export default function PDFCompressorPage() {
 
               {output && !backendAlert && (
                 <div className="mt-10 p-6 rounded-xl bg-zinc-900/80 backdrop-blur-md border border-zinc-700 shadow-2xl animate-fade-in text-center space-y-4">
-                  <h2 className="text-xl font-semibold text-yellow-400">📂 Fichier compressé prêt à être téléchargé :</h2>
-
-                  <div className="flex flex-col md:flex-row justify-center items-center gap-4">
-                    <a
-                      href={output}
-                      download
-                      className="px-4 py-2 bg-yellow-700 hover:bg-yellow-600 text-white rounded transition font-semibold"
-                      target="_blank"
-                    >
-                      ⬇️ Télécharger maintenant
-                    </a>
-
-                    <a
-                      href={output}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-zinc-700 hover:bg-zinc-600 text-white rounded transition font-medium"
-                    >
-                      🔗 Ouvrir dans un nouvel onglet
-                    </a>
-
-                    <button
-                      onClick={async () => {
-                        await navigator.clipboard.writeText(output);
-                        alert("Lien copié dans le presse-papiers !");
-                      }}
-                      className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded transition"
-                    >
-                      📋 Copier le lien
-                    </button>
-                  </div>
-
-                  <p className="text-sm text-zinc-400 mt-2">
-                    Ce lien est valable pendant 24h. <br />
-                    Clic-droit → Enregistrer sous (ou copier-coller le lien ci-dessus)
-                  </p>
+                  <h2 className="text-xl font-semibold text-yellow-400">
+                    📜 Résumé / texte extrait :
+                  </h2>
+                  <pre className="whitespace-pre-wrap text-sm text-zinc-300">{output}</pre>
                 </div>
               )}
               <div className="flex justify-center mt-6 animate-fade-in">
