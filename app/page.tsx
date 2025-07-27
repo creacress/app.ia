@@ -23,6 +23,7 @@ export const metadata = {
 
 import { FaFilePdf, FaLinkedin, FaImage, FaFileExcel, FaClipboardList, FaCompress, FaUserTie } from "react-icons/fa";
 import AnimatedServiceCard from "@/components/AnimatedServiceCard";
+import CookieConsent from "@/components/CookieConsent";
 
 export default function Home() {
   const services = [
@@ -77,7 +78,9 @@ export default function Home() {
   ];
 
   return (
+    
     <main id="ia-microservices" className="min-h-screen bg-black text-white px-6 py-20 font-sans" aria-label="Liste des microservices IA proposés par microgenie.app">
+      <CookieConsent />
       <h1 className="text-4xl sm:text-5xl font-bold text-center mb-6 tracking-tight">
         Bienvenue sur <span className="text-indigo-400">microgenie.app</span>
       </h1>

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import SuiviPage from '@/components/SuiviPage';
+import CookieConsent from '@/components/CookieConsent';
 
 export default function PDFCompressorPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -89,8 +90,8 @@ export default function PDFCompressorPage() {
   return (
     <>
       <div className="flex justify-center mb-6 animate-fade-in">
-              <SuiviPage />
-        
+        <SuiviPage />
+        <CookieConsent />
         <svg className="w-16 h-16 text-yellow-400" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M4 8V7a2 2 0 012-2h12a2 2 0 012 2v1M4 12h16" />
         </svg>

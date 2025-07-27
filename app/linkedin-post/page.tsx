@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import SuiviPage from "@/components/SuiviPage";
+import CookieConsent from "@/components/CookieConsent";
 
 export default function LinkedInPostPage() {
   const [input, setInput] = useState("");
@@ -43,7 +44,8 @@ export default function LinkedInPostPage() {
     <>
       <div className="flex justify-center mb-6 animate-fade-in">
       <SuiviPage />
-        
+      <CookieConsent />
+      
       </div>
       <main className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-black to-black text-white px-6 py-16">
         <div className="max-w-2xl mx-auto">

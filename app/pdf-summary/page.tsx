@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useHistoryStore } from "../../lib/useHistoryStore";
 import SuiviPage from "@/components/SuiviPage";
+import CookieConsent from "@/components/CookieConsent";
 
 const mockDetectLangAndTone = (text: string) => {
   // Mock detection logic
@@ -185,8 +186,9 @@ export default function PDFSummaryPage() {
       className={`min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-black to-black text-white px-6 py-16 ${readingMode ? "reading-mode" : ""
         } ${showQuotaPopup ? "blurred" : ""}`}
     >
-            <SuiviPage />
-      
+      <SuiviPage />
+      <CookieConsent />
+
       <div className="w-full max-w-2xl px-4 sm:px-6 lg:px-8 mx-auto">
         <h1 className="text-4xl font-bold mb-4 text-center animate-fade-in flex items-center justify-center gap-3">
           <svg

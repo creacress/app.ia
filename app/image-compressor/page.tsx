@@ -3,10 +3,14 @@
 "use client";
 import React from "react";
 import { FaCompress } from "react-icons/fa";
+import SuiviPage from "@/components/SuiviPage";
+import CookieConsent from "@/components/CookieConsent";
 
 export default function ImageCompressorComingSoon() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-br from-zinc-900 via-black to-zinc-800 text-white text-center">
+    <CookieConsent />
+    <SuiviPage />
       <div className="animate-pulse-slow text-indigo-500 text-6xl mb-6">
         <FaCompress className="inline-block" />
       </div>

@@ -1,5 +1,6 @@
 import ContactForm from "../../components/ContactForm";
 import SuiviPage from "@/components/SuiviPage";
+import CookieConsent from "@/components/CookieConsent";
 
 export const metadata = {
   title: "Contact – microgenie.app",
@@ -10,6 +11,8 @@ export default function ContactPage() {
   return (
       <main className="min-h-screen bg-black text-white px-6 py-20 font-sans relative">
         <SuiviPage />
+                <CookieConsent />
+        
       <h1 className="text-4xl sm:text-5xl font-bold text-center mb-6 tracking-tight">
         Contact & Support
       </h1>
