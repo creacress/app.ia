@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -20,7 +21,6 @@ export const metadata: Metadata = {
 
 import Link from "next/link";
 import CookieConsent from "../components/CookieConsent";
-
 const Header = () => (
   <header className="w-full px-6 py-4 bg-black text-white border-b border-zinc-800 flex justify-between items-center">
     <Link href="/" className="text-xl font-bold tracking-tight">
@@ -52,8 +52,25 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
         <Header />
-        <CookieConsent />
         {children}
+        {typeof window !== "undefined" && (
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-ETZGPHCT13"
+          ></script>
+        )}
+        {typeof window !== "undefined" && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-ETZGPHCT13');
+              `,
+            }}
+          />
+        )}
       </body>
     </html>
   );
