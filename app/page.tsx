@@ -24,6 +24,7 @@ export const metadata = {
 import { FaFilePdf, FaLinkedin, FaImage, FaFileExcel, FaClipboardList, FaCompress, FaUserTie } from "react-icons/fa";
 import AnimatedServiceCard from "@/components/AnimatedServiceCard";
 import CookieConsent from "@/components/CookieConsent";
+import { StructuredData, BreadcrumbGenerator } from "@/components/StructuredData";
 
 export default function Home() {
   const services = [
@@ -81,6 +82,19 @@ export default function Home() {
     
     <main id="ia-microservices" className="min-h-screen bg-black text-white px-6 py-20 font-sans" aria-label="Liste des microservices IA proposés par microgenie.app">
       <CookieConsent />
+      <BreadcrumbGenerator />
+      <StructuredData
+        type="WebSite"
+        data={{
+          name: "microgenie.app",
+          url: "https://www.microgenie.app",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://www.microgenie.app/search?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
       <h1 className="text-4xl sm:text-5xl font-bold text-center mb-6 tracking-tight">
         Bienvenue sur <span className="text-indigo-400">microgenie.app</span>
       </h1>

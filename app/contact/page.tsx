@@ -1,3 +1,4 @@
+import { StructuredData, BreadcrumbGenerator } from "@/components/StructuredData";
 import ContactForm from "../../components/ContactForm";
 import SuiviPage from "@/components/SuiviPage";
 import CookieConsent from "@/components/CookieConsent";
@@ -11,7 +12,16 @@ export default function ContactPage() {
   return (
       <main className="min-h-screen bg-black text-white px-6 py-20 font-sans relative">
         <SuiviPage />
-                <CookieConsent />
+        <CookieConsent />
+        <BreadcrumbGenerator />
+        <StructuredData
+          type="WebPage"
+          data={{
+            name: "Page Contact – microgenie.app",
+            url: "https://www.microgenie.app/contact",
+            description: "Besoin d'aide ou de nous contacter ? Retrouvez ici toutes les informations utiles pour réclamations, support ou collaboration.",
+          }}
+        />
         
       <h1 className="text-4xl sm:text-5xl font-bold text-center mb-6 tracking-tight">
         Contact & Support

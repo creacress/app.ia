@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useHistoryStore } from "../../lib/useHistoryStore";
 import SuiviPage from "@/components/SuiviPage";
 import CookieConsent from "@/components/CookieConsent";
+import { StructuredData, BreadcrumbGenerator } from "@/components/StructuredData";
 
 const mockDetectLangAndTone = (text: string) => {
   // Mock detection logic
@@ -188,6 +189,15 @@ export default function PDFSummaryPage() {
     >
       <SuiviPage />
       <CookieConsent />
+      <BreadcrumbGenerator />
+      <StructuredData
+        type="WebPage"
+        data={{
+          name: "Résumé PDF – microgenie.app",
+          url: "https://www.microgenie.app/pdf-summary",
+          description: "Utilise notre IA pour résumer automatiquement tes fichiers PDF, PowerPoint ou texte. Rapide, simple et sans inscription.",
+        }}
+      />
 
       <div className="w-full max-w-2xl px-4 sm:px-6 lg:px-8 mx-auto">
         <h1 className="text-4xl font-bold mb-4 text-center animate-fade-in flex items-center justify-center gap-3">

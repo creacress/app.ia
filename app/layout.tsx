@@ -14,9 +14,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "microgenie.app – IA utiles au quotidien",
+  title: "microgenie.app – Outils PDF en ligne gratuits et simples",
   description:
-    "microgenie.app propose des microservices gratuits et instantanés pour booster ta productivité grâce à l'IA : résumé de PDF, LinkedIn, Excel, fiches, images, CV.",
+    "Outils PDF gratuits : résumé, compression, conversion. Sans pub, sans inscription. microgenie.app, une IA rapide et respectueuse de la vie privée.",
+  keywords:
+    "outil PDF, résumé PDF, compresseur PDF, convertir PDF, PDF gratuit, IA, microgenie",
+  metadataBase: new URL("https://www.microgenie.app"),
+  openGraph: {
+    title: "microgenie.app – PDF & IA en ligne",
+    description:
+      "Utilise nos microservices PDF (compression, résumé, conversion, etc.) sans pub ni tracking.",
+    url: "https://www.microgenie.app",
+    siteName: "microgenie.app",
+    type: "website",
+  },
 };
 
 import Link from "next/link";
